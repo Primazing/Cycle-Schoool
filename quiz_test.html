@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title> Sample Quiz </title>
+<link href="StyleSheet.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<br>
+
+<form>
+<div class="question">
+  <p>How does briar nolet dance?</p>
+</div>
+  <input type="radio" id="rock" name="music_type" value="rock">
+  <label for="rock">To rock music</label><br>
+  <input type="radio" id="ballet" name="music_type" value="ballet">
+  <label for="ballet">To balletic style</label><br>
+
+  <br>  
+
+  <button type="submit">Submit</button>
+</form>
+
+<pre id="log"></pre>
+
+<script>
+var form = document.querySelector("form");
+var log = document.querySelector("#log");
+
+form.addEventListener("submit", function(event) {
+  var data = new FormData(form);
+  var output = "";
+  for (const entry of data) {
+    if( entry[1] == 'rock'){
+        output = "YOU ARE INCORRECT" + "\r";
+    }
+    else{
+        output = "YOU ARE CORRECT" + "\r";
+        //output = output + entry[0] + "=" + entry[1] + "\r";
+    }
+  };
+  log.innerText = output;
+  event.preventDefault();
+}, false);
+</script>
+
+</body>
+
+
+</html>
